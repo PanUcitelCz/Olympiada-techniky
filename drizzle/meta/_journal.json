@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1737661608957,
+      "tag": "0000_polite_agent_brand",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1737661674668,
+      "tag": "0001_melodic_moonstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1737662059775,
+      "tag": "0002_tiresome_warpath",
+      "breakpoints": true
+    }
+  ]
+}
