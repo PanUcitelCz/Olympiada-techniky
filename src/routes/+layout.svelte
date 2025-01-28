@@ -26,4 +26,9 @@
 	</main>
 {/key}
 
+
+<style lang="stylus">
+	:global(body)
+		margin 0
+</style>
   

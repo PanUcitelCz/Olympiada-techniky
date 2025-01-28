@@ -42,59 +42,149 @@
 	}
 </script>
 
-<div class="Main">
+<div class="form-wrapper">
 	<div class="form">
 		<h1>Přihlášení do administrace</h1>
 		<form onsubmit={login}>
-			<input type="text" bind:value={nickname} placeholder="Přihlašovací jméno" required />
-			<input type="password" bind:value={password} placeholder="Heslo" required />
-            <div class="checkbox">
-                <input type="checkbox" bind:checked={rememberMe} />
-                <span>Pamatuj si mě</span>
-            </div>
-			<button type="submit" color="green">Přihlásit</button>
-		</form>
-		<a href="/login/forgot-password">Zapoměnli jste heslo?</a>
-		<div class="form-buttons">
-			<a href="/" >Hlavní stránka</a>
-		</div>
-
-		{#if notification}
-			<div transition:fade class="notification">{notification}</div>
-		{/if}
-
-		{#if loginSuccess}
-			<div transition:fade class="notification" style="color: green">
-				Přihlášení bylo úspěšné
+			<label for="text">Přihlašovací jméno</label>
+			<input type="text" bind:value={nickname} required />
+			<label for="password">Heslo</label>
+			<input type="password" bind:value={password} required />
+			<div class="checkbox">
+				<input type="checkbox" bind:checked={rememberMe} id="rememberMe" />
+				<label for="rememberMe">Pamatuj si mě</label>
 			</div>
-		{/if}
+			<button type="submit" class="btn-primary">Přihlásit</button>
+		</form>
+		<div class="links">
+			<a href="/register">Registrace</a>
+			<a href="/">Hlavní stránka</a>
+		</div>
+		<a href="/login/forgot-password" class="forgot-link">Zapomněli jste heslo?</a>
 	</div>
+
+	{#if notification}
+		<div transition:fade class="notification">{notification}</div>
+	{/if}
+
+	{#if loginSuccess}
+		<div transition:fade class="notification success">
+			Přihlášení bylo úspěšné
+		</div>
+	{/if}
 </div>
 
 <style lang="stylus">
-  //@import '../../lib/css/form.styl'
-    a
-        text-decoration none
-        color #334257
-        transition ease .3s
-        padding 10px
-        border-radius 10px
+.form-wrapper
+	display flex
+	justify-content center
+	align-items center
+	min-height 100vh
+	box-sizing border-box
 
-        &:hover
-            color black
-            background #F5F5F5
+.form
+	background white
+	padding 2rem
+	border-radius 10px
+	box-shadow 0 4px 20px rgba(0, 0, 0, 0.1)
+	display flex
+	flex-direction column
+	gap 1rem
+	transition transform 0.3s ease, box-shadow 0.3s ease
 
-    .checkbox
-        display flex
-        align-items center
-        margin-bottom 20px
-        width 100%
-        gap 8px
-        margin 0
+	h1
+		margin-bottom 1rem
+		font-size 1.8rem
+		color #333
+		text-align center
 
-        input[type="checkbox"]
-            width 15px
-            height 15px
-            cursor pointer
+	form
+		display flex
+		flex-direction column
+		gap 1rem
 
+	label
+		font-size 1rem
+		color #666
+
+	input
+		padding 0.8rem
+		font-size 1rem
+		border 1px solid #ccc
+		border-radius 5px
+		transition border-color 0.3s ease, box-shadow 0.3s ease
+
+		&:focus
+			border-color #4facfe
+			box-shadow 0 0 5px rgba(79, 172, 254, 0.5)
+			outline none
+
+	.checkbox
+		display flex
+		align-items center
+		gap 0.5rem
+		font-size 0.9rem
+
+	.btn-primary
+		background #4facfe
+		color white
+		padding 0.8rem
+		border none
+		border-radius 5px
+		font-size 1rem
+		font-weight bold
+		cursor pointer
+		transition background 0.3s ease, transform 0.2s ease
+
+		&:hover
+			background #00f2fe
+			transform scale(1.05)
+
+	.links
+		display flex
+		justify-content space-between
+		align-items center
+		gap 16px
+		
+		a
+			text-decoration none
+			color white
+			display flex
+			justify-content center
+			align-items center
+			background grey
+			width 100%
+			height 44px
+			border-radius 5px
+			transition ease .3s
+
+			&:hover
+				background white
+				color black
+				border 1px solid black
+
+	.forgot-link
+		color #4facfe
+		text-align center
+		font-size 0.9rem
+		text-decoration none
+		transition color 0.3s ease
+
+		&:hover
+			color #00f2fe
+
+.notification
+	padding 1rem
+	background #ffe5e5
+	color #ff4d4d
+	border-radius 5px
+	box-shadow 0 4px 10px rgba(255, 77, 77, 0.2)
+	text-align center
+	transition opacity 0.3s ease
+	position absolute
+	top 15px
+
+.success
+	background green
+	color white
 </style>

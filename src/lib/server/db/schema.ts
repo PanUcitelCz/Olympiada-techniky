@@ -12,6 +12,7 @@ export const usersTable = sqliteTable('users', {
   });
 
 
+
   /* 
     DATABASE_URL="libsql://olympiadatechniky-panucitelcz.turso.io"
     DATABASE_AUTH_TOKEN="eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3Mzc2NjEyODcsImlkIjoiYzkxZmFhMjQtOTA4Mi00YWJjLWIxMzctZWJjMDlkMzdmYzQ2In0.F_tsmYGQkVdPOHQPuG6lRIpUbFfjpsd1Nd8hwKUvn4fWFBYrnFb-RWv66KZW1rXDJaevBJaEu0qN8JFlUtx8CQ"
